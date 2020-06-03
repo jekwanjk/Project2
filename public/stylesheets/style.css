@@ -5,7 +5,8 @@
   margin-top: 80px;
 }
 
-#loginBackground {
+#loginBackground,
+#membersBackground {
   background: url(https://images.unsplash.com/photo-1548940740-204726a19be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2135&q=80)
     no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -14,7 +15,8 @@
   background-size: cover;
 }
 
-#loginCard {
+#loginCard,
+#membersCard {
   margin: auto;
   background: rgba(255, 255, 255, 0.95);
   margin-top: 6%;

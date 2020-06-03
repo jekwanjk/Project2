@@ -1,66 +1,203 @@
-<!--Ask them to pick from categories: 
-
-African
-American
-British
-Cajun
-Caribbean
-Chinese
-Eastern European
-European
-French
-German
-Greek
-Indian
-Irish
-Italian
-Japanese
-Jewish
-Korean
-Latin American
-Mediterranean
-Mexican
-Middle Eastern
-Nordic
-Southern
-Spanish
-Thai
-Vietnamese
-
--->
-
 <!DOCTYPE html>
-<html lang="en">
+<html id="membersBackground" lang="en">
+  <head>
+    <title>Passport Authentication</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css"
+    />
+    <link href="stylesheets/style.css" rel="stylesheet" />
+  </head>
+  <!-- Navbar   -->
 
-<head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
-</head>
+  <body>
+    <nav class="uk-navbar-container" uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav">
+          <li class="uk-active"><a href="#">Login</a></li>
+          <li></li>
+          <li><a href="#">Members</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </div>
+    </nav>
 
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/logout">
-          Logout
-        </a>
+    <!-- App Logo -->
+    <div id="logo">
+      <h1>FOODAPP</h1>
+    </div>
+
+    <!-- Members Card Container -->
+    <div class="uk-container">
+      <!-- Members Card-->
+      <div class="uk-card uk-card-default uk-width-1-2@m" id="membersCard">
+        <!-- Members Header -->
+        <form class="uk-form-stacked">
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              >What kind of dietary restrictions do you have?</label
+            >
+            <div class="uk-form-controls">
+              <input
+                class="uk-input"
+                id="form-stacked-text"
+                type="text"
+                placeholder="Ex: Peanuts, shellfish..."
+              />
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-select"
+              >Which cuisine are you interested in?</label
+            >
+            <div class="uk-form-controls">
+              <select
+                class="uk-select"
+                id="form-stacked-select"
+                placeholder="test"
+              >
+                <option>African</option>
+                <option>American</option>
+                <option>British</option>
+                <option>Cajun</option>
+                <option>Caribbean</option>
+                <option>Chinese</option>
+                <option>Eastern European</option>
+                <option>European</option>
+                <option>French</option>
+                <option>German</option>
+                <option>Greek</option>
+                <option>Indian</option>
+                <option>Irish</option>
+                <option>Italian</option>
+                <option>Japanese</option>
+                <option>Jewish</option>
+                <option>Korean</option>
+                <option>Latin American</option>
+                <option>Mediterranean</option>
+                <option>Mexican</option>
+                <option>Middle Eastern</option>
+                <option>Nordic</option>
+                <option>Southern</option>
+                <option>Spanish</option>
+                <option>Thai</option>
+                <option>Vietnamese</option>
+              </select>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-select"
+              >Please select another different option.</label
+            >
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select">
+                <option>African</option>
+                <option>American</option>
+                <option>British</option>
+                <option>Cajun</option>
+                <option>Caribbean</option>
+                <option>Chinese</option>
+                <option>Eastern European</option>
+                <option>European</option>
+                <option>French</option>
+                <option>German</option>
+                <option>Greek</option>
+                <option>Indian</option>
+                <option>Irish</option>
+                <option>Italian</option>
+                <option>Japanese</option>
+                <option>Jewish</option>
+                <option>Korean</option>
+                <option>Latin American</option>
+                <option>Mediterranean</option>
+                <option>Mexican</option>
+                <option>Middle Eastern</option>
+                <option>Nordic</option>
+                <option>Southern</option>
+                <option>Spanish</option>
+                <option>Thai</option>
+                <option>Vietnamese</option>
+              </select>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-select"
+              >Please select another different option.</label
+            >
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select">
+                <option>African</option>
+                <option>American</option>
+                <option>British</option>
+                <option>Cajun</option>
+                <option>Caribbean</option>
+                <option>Chinese</option>
+                <option>Eastern European</option>
+                <option>European</option>
+                <option>French</option>
+                <option>German</option>
+                <option>Greek</option>
+                <option>Indian</option>
+                <option>Irish</option>
+                <option>Italian</option>
+                <option>Japanese</option>
+                <option>Jewish</option>
+                <option>Korean</option>
+                <option>Latin American</option>
+                <option>Mediterranean</option>
+                <option>Mexican</option>
+                <option>Middle Eastern</option>
+                <option>Nordic</option>
+                <option>Southern</option>
+                <option>Spanish</option>
+                <option>Thai</option>
+                <option>Vietnamese</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              >What is your location?</label
+            >
+            <div class="uk-form-controls">
+              <input
+                class="uk-input uk-width-1-3"
+                id="form-stacked-text"
+                type="text"
+                placeholder="Address"
+              />
+              <input
+                class="uk-input uk-width-1-3"
+                id="form-stacked-text"
+                type="text"
+                placeholder="City"
+              />
+              <input
+                class="uk-input uk-width-1-3"
+                id="form-stacked-text"
+                type="text"
+                placeholder="State"
+              />
+              <input
+                class="uk-input uk-width-1-3"
+                id="form-stacked-text"
+                type="text"
+                placeholder="Zip Code"
+              />
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="member-name"></span></h2>
-      </div>
-    </div>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/members.js"></script>
-
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+    <script type="text/javascript" src="js/members.js"></script>
+  </body>
 </html>
