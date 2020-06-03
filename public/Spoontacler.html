@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>rapid api</h1>
+   <script>
+    // Example queryURL for Giphy API
+    //var queryURL = "https://api.spoonacular.com/recipes/search?query=cheese&number=2";
+	var queryURL = "https://api.spoonacular.com/recipes/716429/information?apiKey=33ae52ff39dd484890691ce240ac97dc&includeNutrition=true";
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+
+   </script> 
+
+
+
+</body>
+</html>
