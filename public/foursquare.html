@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Foursquare API</h1>
+
+    <script>
+
+        $.ajax({
+            dataType: "json",
+            url: "https://api.foursquare.com/v2/venues/explore?client_id=" + "3SRGOY5DOEZ53SDNLBNV1B23ENTR2OMC4DHTWGAO0JSHFA5Q" + "&client_secret=" + "P4L3S25V5ZNWL10BAIWZ5TXFJOAQTYU4SKNGBNH2XKXDIADP" + "&v=20180323&limit=10&ll=40.7243,-74.0018&categoryId=52f2ab2ebcbc57f1066b8b46",
+            data: {},
+            success: function (data) {
+                // Code for handling API response
+                console.log(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                // Code for handling errors
+            }
+        });
+    </script>
+
+</body>
+
+</html>
