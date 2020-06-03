@@ -1,45 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="loginBackground" lang="en">
+  <head>
+    <title>FoodApp</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css"
+    />
 
-<head>
-  <title>Passport Authentication</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
-  <link href="stylesheets/style.css" rel="stylesheet">
-</head>
+    <link href="stylesheets/style.css" rel="stylesheet" />
+  </head>
 
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+  <body>
+    <!-- App Logo -->
+    <div id="logo">
+      <h1>FOODAPP</h1>
+    </div>
+
+    <!-- Login Card Container -->
+    <div class="uk-container">
+      <!-- Login Card-->
+      <div class="uk-card uk-card-default uk-width-1-2@m" id="loginCard">
+        <!-- Login Header -->
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-expand">
+              <h3 class="uk-card-title uk-margin-remove-bottom uk-text-center">
+                LOGIN
+              </h3>
+            </div>
+          </div>
+        </div>
+        <!-- Login Card Body -->
+        <div class="uk-card-body">
+          <form>
+            <div class="uk-margin">
+              <!-- Email Address -->
+              <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input
+                  class="uk-input uk-form-width-large"
+                  id="email-input"
+                  type="email"
+                  placeholder="Email Address"
+                />
+              </div>
+            </div>
+
+            <div class="uk-margin">
+              <!-- Password -->
+              <div class="uk-inline">
+                <span
+                  class="uk-form-icon uk-form-icon"
+                  uk-icon="icon: lock"
+                ></span>
+                <input
+                  class="uk-input uk-form-width-large"
+                  type="password"
+                  id="password-input"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+          </form>
+          <!-- Submit Button -->
+          <button
+            class="uk-button uk-button-default uk-align-center"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+        <!-- Card Footer-->
+        <div class="uk-card-footer" id="signUpLink">
+          <p class="uk-text-center">Don't have an account?</p>
+          <!-- Sing Up Redirect -->
+          <a href="/">SIGN UP</a>
+        </div>
       </div>
     </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
-        <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
-        <br />
-        <p>Or sign up <a href="/">here</a></p>
-      </div>
-    </div>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/login.js"></script>
-
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+  </body>
 </html>
