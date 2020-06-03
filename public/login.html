@@ -2,7 +2,7 @@
 <html id="loginBackground" lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>FoodApp</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- UIkit CSS -->
@@ -12,109 +12,55 @@
 </head>
 
 <body>
-  <!-- <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
-    </div>
-  </nav> -->
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
-        <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-default">Login</button>
-        </form>
-        <br />
-        <p>Or sign up <a href="/">here</a></p>
-      </div>
-    </div>
-  </div> -->
 
-  <nav class="uk-navbar-container uk-margin uk-navbar-transparent" uk-navbar>
-    <div class="uk-navbar-left">
+  <!-- App Logo -->
+  <div id="logo">
+    <h1>FOODAPP</h1>
+  </div>
 
-      <a class="uk-navbar-item uk-logo" href="#">FoodApp</a>
-
-      <!-- <ul class="uk-navbar-nav">
-        <li>
-          <a href="#">
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
-            Features
-          </a>
-        </li>
-      </ul> -->
-    </div>
-  </nav>
-
+  <!-- Login Card Container -->
   <div class="uk-container">
 
+    <!-- Login Card-->
     <div class="uk-card uk-card-default uk-width-1-2@m" id="loginCard">
+      <!-- Login Header -->
       <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-expand">
-            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-center">Login</h3>
+            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-center">LOGIN</h3>
           </div>
         </div>
       </div>
+      <!-- Login Card Body -->
       <div class="uk-card-body">
-
         <form>
-
           <div class="uk-margin">
+            <!-- Email Address -->
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: user"></span>
-              <input class="uk-input uk-form-width-large" type="text" placeholder="Email Address">
+              <input class="uk-input uk-form-width-large" id="email-input" type="email" placeholder="Email Address">
             </div>
           </div>
 
           <div class="uk-margin">
+            <!-- Password -->
             <div class="uk-inline">
               <span class="uk-form-icon uk-form-icon" uk-icon="icon: lock"></span>
-              <input class="uk-input uk-form-width-large" type="text" placeholder="Password">
+              <input class="uk-input uk-form-width-large" type="password" id="password-input" placeholder="Password">
             </div>
           </div>
-
         </form>
-        <button class="uk-button uk-button-default uk-align-center">Submit</button>
-
-
-
-
+        <!-- Submit Button -->
+        <button class="uk-button uk-button-default uk-align-center" type="submit">Submit</button>
       </div>
-      <div class="uk-card-footer">
-
+      <!-- Card Footer-->
+      <div class="uk-card-footer" id="signUpLink">
         <p class="uk-text-center">Don't have an account?</p>
-        <button class="uk-button uk-button-link uk-align-center">Sign Up</button>
+        <!-- Sing Up Redirect -->
+        <a href="/">SIGN UP</a>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
   </div>
-
-
-
-
-
-
-
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- UIkit JS -->

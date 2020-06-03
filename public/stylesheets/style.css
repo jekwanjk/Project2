@@ -1,6 +1,8 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+/* Login.html Styles */
+
+#logo {
+  text-align: center;
+  margin-top: 80px;
 }
 
 #loginBackground {
@@ -14,5 +16,26 @@ form.login {
 
 #loginCard {
   margin: auto;
-  margin-top: 10%;
+  background: rgba(255, 255, 255, 0.95);
+  margin-top: 6%;
+  position: relative;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+#loginCard h3 {
+  color: #696969;
+  font-weight: 300;
+}
+
+#signUpLink {
+  text-align: center;
+  font-size: 13px;
+}
+
+#signUpLink p {
+  margin-bottom: 5px;
 }
