@@ -1,42 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="signUpBackground" lang="en">
 
 <head>
   <title>Passport Authentication</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+
+
+  <!-- Sign Up Card Container -->
+  <div class="uk-container signUpCardContainer">
+    <div class="uk-card uk-card-default uk-width-1-2@m" id="signUpCard">
+
+      <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+
+          <div class="uk-width-expand">
+            <h3 class="uk-card-title uk-margin-remove-bottom uk-text-center">Sign Up</h3>
+          </div>
+        </div>
       </div>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+
+      <div class="uk-card-body">
+
+        <form class="uk-form-stacked signup">
+
+          <!--Full Name-->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Full Name</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text fullname-input" type="text" />
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+
+          <!-- Email Address -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Email Address</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text email-input" type="email" />
+            </div>
           </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
+
+          <!-- Password -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Password</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text password-input" type="password" />
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
+
+          <!-- Error to be displayed if email and password are blank-->
+          <div style="display: none" id="alert" class="uk-alert-danger" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p class="msg"></p>
+          </div>
+
+          <!--Dietary restrictions -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">What kind of dietary restrictions do you have?</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="text" placeholder="Ex: Peanuts, shellfish, etc..." />
+            </div>
+          </div>
+
+          <!-- Calories -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">What is your daily desired caloric intake?</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="text" placeholder="Ex: 2000, 2500, etc..." />
+            </div>
+          </div>
+
+          <!-- Diet -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-select">What kind of diet are you interested in?</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" placeholder="test">
+                <option>Gluten Free</option>
+                <option>Ketogenic</option>
+                <option>Vegetarian</option>
+                <option>Lacto-Vegetarian</option>
+                <option>Ovo-Vegetarian</option>
+                <option>Vegan</option>
+                <option>Pescatarian</option>
+                <option>Paleo</option>
+                <option>Primal</option>
+                <option>Whole30</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">What is your location?</label>
+            <div class="uk-form-controls">
+              <input class="uk-input uk-width-1-3" id="form-stacked-text" type="text" placeholder="Address" />
+              <input class="uk-input uk-width-1-3" id="form-stacked-text" type="text" placeholder="City" />
+              <input class="uk-input uk-width-1-3" id="form-stacked-text" type="text" placeholder="State" />
+              <input class="uk-input uk-width-1-3" id="form-stacked-text" type="text" placeholder="Zip Code" />
+            </div>
+          </div>
         </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
+      </div>
+
+      <div class="uk-card-footer" id="loginLink">
+        <p class="uk-text-center">Or</p>
+        <!-- Sing Up Redirect -->
+        <a href="/">LOGIN HERE</a>
       </div>
     </div>
   </div>
