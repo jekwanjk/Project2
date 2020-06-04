@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>iEat</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+  <link href="stylesheets/style.css" rel="stylesheet" />
+</head>
+<!-- Navbar -->
+
+<body>
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        <li class="uk-active"><a href="#">Recipes</a></li>
+        <li></li>
+        <li><a href="#">Shopping List</a></li>
+        <li><a href="#">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out
+            "></span>Log Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- App Logo -->
+  <div id="logo">
+    <h1>iEat</h1>
+  </div>
+
+  <div id="welcomeMessage">
+    <p>Welcome <span id="memberName"></span></p>
+
+  </div>
+
+  <div class="uk-container">
+
+    <ul class="uk-subnav uk-subnav-pill" uk-switcher="connect: .switcher-container">
+      <li><a href="#">Meal Plan For The Week</a></li>
+    </ul>
+
+    <h4>Day 1</h4>
+
+    <!-- Week 1 - Day 1 Recipes -->
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <h4>Day 2</h4>
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <h4>Day 3</h4>
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <h4>Day 4</h4>
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <h4>Day 5</h4>
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <h4>Day 6</h4>
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <h4>Day 7</h4>
+
+    <ul class="uk-switcher switcher-container uk-margin">
+      <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Breakfast</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Lunch</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="uk-card uk-card-default">
+            <div class="uk-card-badge uk-label">Dinner</div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg"
+                alt="">
+            </div>
+            <div class="uk-card-body">
+              <h3 class="uk-card-title">Media Top</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+
+    <div id="shoppingButtonHolder">
+      <button class="uk-button uk-button-default uk-button-large">View Shopping List</button>
+    </div>
+
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+  <script type="text/javascript" src="js/members.js"></script>
+</body>
+
+</html>

@@ -55,3 +55,33 @@
 .signUpCardContainer {
   margin-bottom: 90px;
 }
+
+#shoppingButtonHolder,
+#recipesButtonHolder {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+/* Styling for Recipe Page Header */
+.uk-subnav {
+  display: block;
+  text-align: center;
+}
+
+.uk-subnav-pill > .uk-active > a {
+  background-color: white;
+  font-size: 25px;
+  font-weight: 400;
+  color: #db6b25;
+  margin-top: 30px;
+  border-bottom: 2px solid #037c9d;
+}
+
+#groceryStoreContainer {
+  margin-bottom: 100px;
+}
+
+.uk-heading-divider {
+  font-size: 30px;
+}
