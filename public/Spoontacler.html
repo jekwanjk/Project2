@@ -1,27 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
-    <h1>rapid api</h1>
-   <script>
-    // Example queryURL for Giphy API
-    //var queryURL = "https://api.spoonacular.com/recipes/search?query=cheese&number=2";
-	var queryURL = "https://api.spoonacular.com/recipes/716429/information?apiKey=33ae52ff39dd484890691ce240ac97dc&includeNutrition=true";
+  <h1>rapid api</h1>
+  <script>
+    // // Example queryURL for Giphy API
+    // //var queryURL = "https://api.spoonacular.com/recipes/search?query=cheese&number=2";
+    // var queryURL = "https://api.spoonacular.com/recipes/716429/information?apiKey=33ae52ff39dd484890691ce240ac97dc&includeNutrition=true";
+    // $.ajax({
+    //   url: queryURL,
+    //   method: "GET"
+    // }).then(function (response) {
+    //   console.log(response);
+
+    let dietRestrictions = "peanuts";
+    let calories = 2000;
+    let dietType = "Gluten Free";
+    let mealIds = [];
+    let mealIngredientsName = [];
+    let mealIngredientsQty = [];
+    let mealImages = [];
+    // });
+
+    const queryURL =
+      "https://api.spoonacular.com/mealplanner/generate?apiKey=33ae52ff39dd484890691ce240ac97dc&timeframe=week?targetCalories=" +
+      calories +
+      "?diet=" +
+      dietType +
+      "?exclude=" +
+      dietRestrictions;
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
+
+      // Get ids for all Monday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.monday.meals[i].id);
+      }
+
+      // Get ids for all Tuesday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.tuesday.meals[i].id);
+      }
+
+      // Get ids for all Wednesday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.wednesday.meals[i].id);
+      }
+
+      // Get ids for all Thursday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.thursday.meals[i].id);
+      }
+
+      // Get ids for all Friday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.friday.meals[i].id);
+      }
+
+      // Get ids for all Saturday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.saturday.meals[i].id);
+      }
+
+      // Get ids for all Sunday
+      for (let i = 0; i < 3; i++) {
+        mealIds.push(response.week.sunday.meals[i].id);
+      }
+
+      getRecipeImgIngredients();
+      console.log(mealIds);
     });
 
-   </script> 
+    function getRecipeImgIngredients() {
+
+      for (let i = 0; i < mealIds.length; i++) {
+        let queryURLImgs = "https://api.spoonacular.com/recipes/" +
+          mealIds[i] +
+          "/information?apiKey=33ae52ff39dd484890691ce240ac97dc";
+        $.ajax({
+          url: queryURLImgs,
+          method: "GET"
+        }).then(function (response) {
+
+          mealImages.push(response.image)
+
+          for (let i = 0; i < response.extendedIngredients.length; i++) {
+            mealIngredientsName.push(response.extendedIngredients[i].name);
+            mealIngredientsQty.push(response.extendedIngredients[i].amount);
+          }
+
+          console.log("IMG " + mealImages);
+          console.log("Name" + mealIngredientsName);
+          console.log("Qty" + mealIngredientsQty);
+
+          console.log(response);
+
+          // return;
+        });
+
+      }
+
+    }
+
+  </script>
 
 
 
 </body>
+
 </html>
