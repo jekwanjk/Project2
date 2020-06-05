@@ -182,8 +182,11 @@
           </form>
         </div>
 
+        <div> <button class="uk-button uk-button-default uk-align-center" id="button">Sign up!</button>
+
         <div class="uk-card-footer" id="loginLink">
           <p class="uk-text-center">Or</p>
+
           <!-- Sing Up Redirect -->
           <a href="/">LOGIN HERE</a>
         </div>
@@ -191,6 +194,15 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/signup.js"></script>
+    <!-- <script type="text/javascript" src="js/signup.js"></script> -->
+  
+   <script> 
+   var submitButton= document.getElementById("button");
+   var signupButton=function(){ 
+    submitButton.textContent = "Submitted!";
+  }
+  submitButton.addEventListener("click",signupButton); 
+
+    </script>
   </body>
 </html>

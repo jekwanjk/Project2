@@ -35,7 +35,13 @@
   color: #696969;
   font-weight: 300;
 }
-
+#button {
+  background-color: white; 
+  color: red; 
+  text-align: center;
+  margin-left: 200px;
+  float: center;
+}
 #signUpLink,
 #loginLink {
   text-align: center;
