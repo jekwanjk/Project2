@@ -15,10 +15,13 @@
 */
 
 $(document).ready(function () {
-  // Will save name of user to variable after sign-up form input
-  let name = "";
+  /* ROUTE NEEDS TO BE SET UP IN DATABASE*/
+  // Will display name of user next to Welcome
+  // $.get("/api/user_data").then(function (data) {
+  //   $("#memberName").text(data.name);
+  // });
 
-  // Placeholder values for user input
+  // Placeholder values for user input !!!!! NEED TO BE UPDATED TO DATABASE BY MOVING INTO LINE 21 and setting dietRestrictions to data.dietaryRestrictions
   let dietRestrictions = "peanuts";
   let calories = 2000;
   let dietType = "Gluten Free";
@@ -32,9 +35,30 @@ $(document).ready(function () {
   // Array of objects with final recipes with all information
   let finalRecipes = [];
 
-  // API call to generate recipes for the week using user input for calories, diet type, and diet restrictions
+  /* WILL WORK ONLY IF WE SET UP THE DATABASE */
+
+  // Boolean to check if there is data for the user or not
+  // let dataCheck = false;
+
+  // API call to check if there are recipes in the database for the current user
+  // $.get("/api/all_recipes")
+  //   .then(function (data) {
+  // //      for (let i = 0; i < data.length; i++) {
+  //         let recipeName = "recipeName" + [i];
+  //         $("." + recipeName).text(data[i]["name"]);
+  //       }
+  //     if (data) {
+  //       // placeholders = data;
+  //       dataCheck = true;
+  //     } else {
+  /* ADD ALL BELOW HERE ONE DATABASE IS SET UP */
+  //     }
+  //   })
+  //   .catch(handleLoginErr);
+
+  // API call to generate recipes for the week using user input for calories, diet type, and diet restrictions - needs to be moved inside the else statement above once database is set up
   const queryURL =
-    "https://api.spoonacular.com/mealplanner/generate?apiKey=7223b9c04d354ff3b7a4602ff691a66a&timeframe=week?targetCalories=" +
+    "https://api.spoonacular.com/mealplanner/generate?apiKey=a6bd8b6773734999898939dfaf079624&timeframe=week?targetCalories=" +
     calories +
     "?diet=" +
     dietType +
@@ -111,34 +135,79 @@ $(document).ready(function () {
 
     getRecipeImgIngredients().then((response) => {
       // response should be recipes which is an array of objects with id, img, ingredients, qty
-      console.log("here");
+
+      let resData = response;
       console.log("RECIPE LIST");
-      console.log(response);
+      console.log("RESPONSE", response);
       console.log(mealIdsTitleSource);
 
       // Find the corresponding ids in the response array of objects with the mealsIdsTitleSource object
       // Add the title and source URL to the response object
-      for (let i = 0; i <= response.length; i++) {
-        response[i]["name"] = mealIdsTitleSource.find(
-          (x) => x.id == response[i].id
-        ).title;
-        response[i]["sourceUrl"] = mealIdsTitleSource.find(
-          (x) => x.id == response[i].id
-        ).sourceUrl;
-      }
-      // Set the final recipes array of objects with all values to global variable
-      response = finalRecipes;
+
+      setTimeout(function () {
+        for (let i = 0; i < resData.length; i++) {
+          console.log(resData[i]);
+          for (let j = 0; j < mealIdsTitleSource.length; j++) {
+            if (mealIdsTitleSource[j].id === resData[i].id) {
+              console.log("MATCH");
+              resData[i]["name"] = mealIdsTitleSource[j].title;
+              resData[i]["sourceUrl"] = mealIdsTitleSource[j].sourceUrl;
+            }
+          }
+        }
+        finalRecipes = resData;
+        console.log("FINAL DATA: ");
+        console.log(finalRecipes);
+
+        /* THIS WILL ONLY WORK IF DATABASE IS SET UP */
+        // sendDataToDatabase();
+
+        // Add recipe names to front-end
+        for (let i = 0; i < finalRecipes.length; i++) {
+          let recipeName = "recipeName" + [i];
+          $("." + recipeName).text(finalRecipes[i]["name"]);
+        }
+
+        // Add recipe sourceURL to front-end
+        for (let i = 0; i < finalRecipes.length; i++) {
+          let recipeSourceURL = "recipeSourceURL" + [i];
+          $("." + recipeSourceURL).attr(
+            "onclick",
+            "window.open('" + finalRecipes[i]["sourceUrl"] + "', '_blank');"
+          );
+        }
+
+        // Add img to front-end
+        for (let i = 0; i < finalRecipes.length; i++) {
+          let recipeImg = "recipeImg" + [i];
+          $("." + recipeImg).attr("src", finalRecipes[i]["img"]);
+        }
+
+        // Add ingredients to bottom of page
+        for (let i = 0; i < finalRecipes.length; i++) {
+          let allIngredients = finalRecipes[i]["ingredients"];
+
+          let newIngredientDiv = $("<div>");
+          let newIngredientClass = "ingredientDiv" + i;
+          newIngredientDiv.addClass("uk-grid-small");
+          newIngredientDiv.addClass("uk-grid");
+          newIngredientDiv.addClass(newIngredientClass);
+          newIngredientDiv.removeClass("uk-grid-stack");
+          newIngredientDiv.attr("uk-grid", "");
+          $("#ingredientHolder").append(newIngredientDiv);
+        }
+      }, 2000);
     });
   });
 
   // Use ids of recipes to get recipe img, ingredients, and quantity
   function getRecipeImgIngredients() {
-    new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
       for (let i = 0; i < mealIdsTitleSource.length; i++) {
         let queryURLImgs =
           "https://api.spoonacular.com/recipes/" +
           mealIdsTitleSource[i].id +
-          "/information?apiKey=7223b9c04d354ff3b7a4602ff691a66a";
+          "/information?apiKey=a6bd8b6773734999898939dfaf079624";
 
         $.ajax({
           url: queryURLImgs,
@@ -150,12 +219,6 @@ $(document).ready(function () {
           for (let i = 0; i < response.extendedIngredients.length; i++) {
             ingredients.push(response.extendedIngredients[i].name);
             qty.push(response.extendedIngredients[i].amount);
-            // mealImages.push(response.image);
-            // mealIngredientsName.push(response.extendedIngredients[i].name);
-            // mealIngredientsQty.push(response.extendedIngredients[i].amount);
-            // console.log("IMG " + mealImages);
-            // console.log("Name " + mealIngredientsName);
-            // console.log("Qty " + mealIngredientsQty);
           }
 
           recipes.push({
@@ -171,54 +234,21 @@ $(document).ready(function () {
   }
 });
 
-// function createObjs() {
-//   console.log("IMG " + mealImages);
-//   console.log("Name " + mealIngredientsName);
-//   console.log("Qty " + mealIngredientsQty);
-
-//   for (let i = 0; i <= 21; i++) {}
-
-// $.post("/api/signup", {
-//   email: email,
-//   password: password
-// })
-//   .then(function (data) {
-//     window.location.replace("/members");
-//     // If there's an error, handle it by throwing up a bootstrap alert
-//   })
-//   .catch(handleLoginErr);
+// Send final object to database - WILL ONLY WORK WHEN DATABASE IS SET UP
+// function sendDataToDatabase() {
+//   for (let i = 0; i < finalRecipes.length; i++) {
+//     $.post("/api/addData", {
+//       recipeId: finalRecipes[i].id,
+//       imgUrl: finalRecipes[i].img,
+//       ingredients: finalRecipes[i].ingredients,
+//       name: finalRecipes[i].name,
+//       qty: finalRecipes[i].qty,
+//       sourceUrl: finalRecipes[i].sourceUrl
+//     })
+//       .then(function (data) {
+//         // If there's an error, handle it by throwing up a bootstrap alert
+//         console.log("Added to database");
+//       })
+//       .catch(handleLoginErr);
 //   }
-
-// $(".recipeImg1").attr("src", response.week.monday.meals[0].);
-
-// This file just does a GET request to figure out which user is logged in
-// and updates the HTML on the page
-// $.get("/api/user_data").then(function (data) {
-//   $("#memberName").text(data.name);
-// });
-
-// const request = require("request");
-
-// request(
-//   {
-//     url: "https://api.foursquare.com/v2/venues/explore",
-//     method: "GET",
-//     qs: {
-//       client_id: process.env.FOURSQUARE_ID,
-//       client_secret: process.env.FOURSQUARE_SECRET,
-//       ll: "40.7243,-74.0018",
-//       // change ll value to near: (city,State)
-//       // https://developer.foursquare.com/docs/api-reference/venues/search/
-//       categoryId: "52f2ab2ebcbc57f1066b8b46",
-//       v: "20180323",
-//       limit: 10
-//     }
-//   },
-//   function (err, res, body) {
-//     if (err) {
-//       console.error(err);
-//     } else {
-//       console.log(body);
-//     }
-//   }
-// );
+// }
