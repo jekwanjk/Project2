@@ -1,4 +1,4 @@
-### Schema
+DROP DATABASE IF EXISTS ieat_db;
 
 CREATE DATABASE ieat_db;
 USE ieat_db;

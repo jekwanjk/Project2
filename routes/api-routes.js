@@ -7,6 +7,8 @@ module.exports = function (app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
+    console.log("/api/login");
+    console.log("req.user", req.user);
     res.json(req.user);
   });
 
@@ -16,12 +18,21 @@ module.exports = function (app) {
 
   // ADD USER LOCATION
   app.post("/api/signup", function (req, res) {
+    console.log("/api/signup");
     db.User.create({
+      name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      dietaryRestrictions: req.body.dietaryRestrictions,
+      calories: req.body.calories,
+      dietType: req.body.dietType,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zipCode: req.body.zipCode
     })
       .then(function () {
-        res.redirect(307, "/api/login");
+        res.redirect(307, "/login");
       })
       .catch(function (err) {
         res.status(401).json(err);
@@ -44,7 +55,15 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        name: req.user.name,
+        dietaryRestrictions: req.user.dietaryRestrictions,
+        calories: req.user.calories,
+        dietType: req.user.dietType,
+        address: req.user.address,
+        city: req.user.city,
+        state: req.user.state,
+        zipCode: req.user.zipCode
       });
     }
   });

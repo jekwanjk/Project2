@@ -1,17 +1,31 @@
-// Save recipes for the week to present to user
 module.exports = function (sequelize, DataTypes) {
-  var Author = sequelize.define("Author", {
-    // Giving the Author model a name of type STRING
-    name: DataTypes.STRING
+  var Recipe = sequelize.define("Recipe", {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    ingredients: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    qty: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    imgUrl: {
+      type: DataTypes.STRING
+    }
   });
 
-  Author.associate = function (models) {
-    // Associating Author with Posts
-    // When an Author is deleted, also delete any associated Posts
-    Author.hasMany(models.Post, {
-      onDelete: "cascade"
+  Recipe.associate = function (models) {
+    // We're saying that a Recipe should belong to a User
+    // A Recipe can't be created without a User due to the foreign key constraint
+    Recipe.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
     });
   };
 
-  return Author;
+  return Recipe;
 };
