@@ -1,24 +1,15 @@
-/* TO DO
-------------------------------------------------------------------------------
-// Establish connection to Spoonacular with meal planning section using user’s profile created in sign up page
-// Call our API route to get the user’s inputs
-// Setup API calls to Spoonacular & get following recipe info
-// Name of day of week for recipe
-// Recipe name
-// Recipe type (breakfast, lunch, dinner)
-// Recipe image URL (another call)
-// Recipe ingredients (another call)
-// Recipe info URL
-// Recipe Summary
-// Send objects of recipes to our database table
-// Display recipes using call to our database
-*/
-
 $(document).ready(function () {
-  /* ROUTE NEEDS TO BE SET UP IN DATABASE*/
+
+  /* ROUTE NEEDS TO BE SET UP IN DATABASE FOR THIS TO WORK */
+  // let dietRestrictions;
+  // let calories;
+  // let dietType;
   // Will display name of user next to Welcome
   // $.get("/api/user_data").then(function (data) {
   //   $("#memberName").text(data.name);
+  //  dietRestrictions = data.dietaryRestrictions;
+  //  calories = data.calories; 
+  //  dietType = data.dietType;
   // });
 
   // Placeholder values for user input !!!!! NEED TO BE UPDATED TO DATABASE BY MOVING INTO LINE 21 and setting dietRestrictions to data.dietaryRestrictions
@@ -35,30 +26,8 @@ $(document).ready(function () {
   // Array of objects with final recipes with all information
   let finalRecipes = [];
 
-  /* WILL WORK ONLY IF WE SET UP THE DATABASE */
-
-  // Boolean to check if there is data for the user or not
-  // let dataCheck = false;
-
-  // API call to check if there are recipes in the database for the current user
-  // $.get("/api/all_recipes")
-  //   .then(function (data) {
-  // //      for (let i = 0; i < data.length; i++) {
-  //         let recipeName = "recipeName" + [i];
-  //         $("." + recipeName).text(data[i]["name"]);
-  //       }
-  //     if (data) {
-  //       // placeholders = data;
-  //       dataCheck = true;
-  //     } else {
-  /* ADD ALL BELOW HERE ONE DATABASE IS SET UP */
-  //     }
-  //   })
-  //   .catch(handleLoginErr);
-
-  // API call to generate recipes for the week using user input for calories, diet type, and diet restrictions - needs to be moved inside the else statement above once database is set up
   const queryURL =
-    "https://api.spoonacular.com/mealplanner/generate?apiKey=a6bd8b6773734999898939dfaf079624&timeframe=week?targetCalories=" +
+    "https://api.spoonacular.com/mealplanner/generate?apiKey=3b438cba7ddc4b5799d460a7b2d7aab7&timeframe=week?targetCalories=" +
     calories +
     "?diet=" +
     dietType +
@@ -183,18 +152,30 @@ $(document).ready(function () {
           $("." + recipeImg).attr("src", finalRecipes[i]["img"]);
         }
 
-        // Add ingredients to bottom of page
+        // Get all ingredients to add to bottom of page
+        let allIngredients = [];
         for (let i = 0; i < finalRecipes.length; i++) {
-          let allIngredients = finalRecipes[i]["ingredients"];
+          allIngredients.push(finalRecipes[i].ingredients);
+        }
+        console.log("INGREDIENTS" , allIngredients);
 
-          let newIngredientDiv = $("<div>");
-          let newIngredientClass = "ingredientDiv" + i;
-          newIngredientDiv.addClass("uk-grid-small");
-          newIngredientDiv.addClass("uk-grid");
-          newIngredientDiv.addClass(newIngredientClass);
-          newIngredientDiv.removeClass("uk-grid-stack");
-          newIngredientDiv.attr("uk-grid", "");
-          $("#ingredientHolder").append(newIngredientDiv);
+        var finalAllIngredients = [].concat.apply([], allIngredients);
+        console.log("ALL INGREDIENTS", finalAllIngredients);
+
+        // Get all qtys to add to bottom of page
+        let allQty = [];
+        for(let i = 0; i < finalRecipes.length; i++){
+          allQty.push(finalRecipes[i].qty);
+        }
+
+        var finalAllQty = [].concat.apply([], allQty);
+        console.log("ALL QTY: ", finalAllQty);
+
+        for(let i = 0; i < finalAllQty.length; i++){
+          let newIngredientandQtyLi = $("<li>");
+          let newIngredientClass = "ingredientli" + i;
+          newIngredientandQtyLi.text(finalAllIngredients[i] + ": " + finalAllQty[i]);
+          $("#ingredientsQty").append(newIngredientandQtyLi);
         }
       }, 2000);
     });
@@ -207,7 +188,7 @@ $(document).ready(function () {
         let queryURLImgs =
           "https://api.spoonacular.com/recipes/" +
           mealIdsTitleSource[i].id +
-          "/information?apiKey=a6bd8b6773734999898939dfaf079624";
+          "/information?apiKey=3b438cba7ddc4b5799d460a7b2d7aab7";
 
         $.ajax({
           url: queryURLImgs,
@@ -224,8 +205,8 @@ $(document).ready(function () {
           recipes.push({
             id: mealIdsTitleSource[i].id,
             img: response.image,
-            ingredients: ingredients.join(", "),
-            qty: qty.join(", ")
+            ingredients: ingredients,
+            qty: qty
           });
         });
       }
@@ -233,22 +214,3 @@ $(document).ready(function () {
     });
   }
 });
-
-// Send final object to database - WILL ONLY WORK WHEN DATABASE IS SET UP
-// function sendDataToDatabase() {
-//   for (let i = 0; i < finalRecipes.length; i++) {
-//     $.post("/api/addData", {
-//       recipeId: finalRecipes[i].id,
-//       imgUrl: finalRecipes[i].img,
-//       ingredients: finalRecipes[i].ingredients,
-//       name: finalRecipes[i].name,
-//       qty: finalRecipes[i].qty,
-//       sourceUrl: finalRecipes[i].sourceUrl
-//     })
-//       .then(function (data) {
-//         // If there's an error, handle it by throwing up a bootstrap alert
-//         console.log("Added to database");
-//       })
-//       .catch(handleLoginErr);
-//   }
-// }
