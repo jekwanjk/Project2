@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="signUpBackground" lang="en">
   <head>
     <title>Passport Authentication</title>
     <meta charset="UTF-8" />
@@ -8,149 +8,166 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/v4-shims.css"
+    />
     <link href="stylesheets/style.css" rel="stylesheet" />
   </head>
 
-  <body>
+  <body id="signUpPage">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header"></div>
+        <a class="navbar-brand"><i class="fas fa-utensils"></i> iEAT</a>
       </div>
     </nav>
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h2>Sign Up Form</h2>
-          <form class="signup">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email-input"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="password-input"
-                placeholder="Password"
-              />
-            </div>
-            <div class="form-group">
-              <label for="fullname-input">Full Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="fullname-input"
-                placeholder="Full Name"
-              />
-            </div>
-            <div class="form-group">
-              <label for="calories-input">Caloric Intake</label>
-              <input
-                type="text"
-                class="form-control"
-                id="calories-input"
-                placeholder="Caloric Intake"
-              />
-            </div>
+      <div class="card">
+        <div class="card-body" id="signUpCard">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <h2>Sign-Up Form</h2>
+              <form class="signup">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email-input"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password-input"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fullname-input">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullname-input"
+                    placeholder="Full Name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="calories-input">Caloric Intake</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="calories-input"
+                    placeholder="Caloric Intake (Ex: 2500, 2000, etc...)"
+                  />
+                </div>
 
-            <div class="form-group">
-              <label for="restrict-option"
-                >What kind of dietary restrictions do you have?</label
-              >
-              <select class="form-control" id="restrict-option">
-                <option>Dairy</option>
-                <option>Egg</option>
-                <option>Gluten</option>
-                <option>Grain</option>
-                <option>Peanut</option>
-                <option>Seafood</option>
-                <option>Sesame</option>
-                <option>Shellfish</option>
-                <option>Soy</option>
-                <option>Sulfite</option>
-                <option>Tree Nut</option>
-                <option>Wheat</option>
-              </select>
-            </div>
+                <div class="form-group">
+                  <label for="restrict-option"
+                    >What kind of dietary restrictions do you have?</label
+                  >
+                  <select class="form-control" id="restrict-option">
+                    <option>Dairy</option>
+                    <option>Egg</option>
+                    <option>Gluten</option>
+                    <option>Grain</option>
+                    <option>Peanut</option>
+                    <option>Seafood</option>
+                    <option>Sesame</option>
+                    <option>Shellfish</option>
+                    <option>Soy</option>
+                    <option>Sulfite</option>
+                    <option>Tree Nut</option>
+                    <option>Wheat</option>
+                  </select>
+                </div>
 
-            <div class="form-group">
-              <label for="diet-option"
-                >What kind of diet are you interested in?</label
-              >
-              <select class="form-control" id="diet-option">
-                <option>Gluten Free</option>
-                <option>Ketogenic</option>
-                <option>Vegetarian</option>
-                <option>Lacto-Vegetarian</option>
-                <option>Ovo-Vegetarian</option>
-                <option>Vegan</option>
-                <option>Pescatarian</option>
-                <option>Paleo</option>
-                <option>Primal</option>
-                <option>Whole30</option>
-              </select>
-            </div>
+                <div class="form-group">
+                  <label for="diet-option"
+                    >What kind of diet are you interested in?</label
+                  >
+                  <select class="form-control" id="diet-option">
+                    <option>Gluten Free</option>
+                    <option>Ketogenic</option>
+                    <option>Vegetarian</option>
+                    <option>Lacto-Vegetarian</option>
+                    <option>Ovo-Vegetarian</option>
+                    <option>Vegan</option>
+                    <option>Pescatarian</option>
+                    <option>Paleo</option>
+                    <option>Primal</option>
+                    <option>Whole30</option>
+                  </select>
+                </div>
 
-            <div class="form-group">
-              <label for="address-input">Address</label>
-              <input
-                type="text"
-                class="form-control"
-                id="address-input"
-                placeholder="Address"
-              />
-            </div>
-            <div class="form-group">
-              <label for="city-input">City</label>
-              <input
-                type="text"
-                class="form-control"
-                id="city-input"
-                placeholder="City"
-              />
-            </div>
-            <div class="form-group">
-              <label for="state-input">Street</label>
-              <input
-                type="text"
-                class="form-control"
-                id="state-input"
-                placeholder="State"
-              />
-            </div>
-            <div class="form-group">
-              <label for="zipcode-input">Zipcode</label>
-              <input
-                type="text"
-                class="form-control"
-                id="zipcode-input"
-                placeholder="Zipcode"
-              />
-            </div>
+                <div class="form-group">
+                  <label for="address-input">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address-input"
+                    placeholder="Address"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="city-input">City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="city-input"
+                    placeholder="City"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="state-input">State</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="state-input"
+                    placeholder="State"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="zipcode-input">Zip Code</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="zipcode-input"
+                    placeholder="Zip Code"
+                  />
+                </div>
 
-            <div
-              style="display: none;"
-              id="alert"
-              class="alert alert-danger"
-              role="alert"
-            >
-              <span
-                class="glyphicon glyphicon-exclamation-sign"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Error:</span> <span class="msg"></span>
-            </div>
+                <div
+                  style="display: none;"
+                  id="alert"
+                  class="alert alert-danger"
+                  role="alert"
+                >
+                  <span
+                    class="glyphicon glyphicon-exclamation-sign"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="sr-only">Error:</span> <span class="msg"></span>
+                </div>
 
-            <button type="submit" class="btn btn-default">Sign Up</button>
-          </form>
-          <br />
-          <p>Or log in <a href="/login">here</a></p>
+                <button type="submit" class="btn btn-default">Sign Up</button>
+              </form>
+              <br />
+              <p>Log-in <a href="/login">here</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

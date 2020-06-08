@@ -7,7 +7,7 @@
 
 #loginBackground,
 #membersBackground,
-#signUpBackground {
+#signUpPage {
   background: url(https://images.unsplash.com/photo-1548940740-204726a19be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2135&q=80)
     no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -36,8 +36,8 @@
   font-weight: 300;
 }
 #button {
-  background-color: white; 
-  color: red; 
+  background-color: white;
+  color: red;
   text-align: center;
   margin-left: 200px;
   float: center;
@@ -90,4 +90,14 @@
 
 .uk-heading-divider {
   font-size: 30px;
+}
+p {
+  font-size: 20px;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+#signup-page {
+  background-image: url(https://images.unsplash.com/photo-1548940740-204726a19be3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2135&q=80);
 }
