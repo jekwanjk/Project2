@@ -15,7 +15,7 @@ module.exports = function (app) {
   });
 
   app.get("/login", function (req, res) {
-    console.log("get/login");
+    console.log("get /login");
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/recipes");
@@ -32,12 +32,22 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  // app.get("/recipes", isAuthenticated, function (req, res) {
-  //   console.log("get/recipes");
-  //   // If the user already has an account send them to the members page
-  //   if (req.user) {
-  //     // res.redirect("/recipes");
-  //   }
-  //   res.sendFile(path.join(__dirname, "../public/login.html"));
-  // });
+  // Route for logging user out
+  app.get("/logout", function (req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
+  app.get("/recipes", isAuthenticated, function (req, res) {
+    console.log("get/recipes");
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      // res.redirect("/recipes");
+      console.log("res.sendFile(recipe)");
+      res.sendFile(path.join(__dirname, "../public/recipes.html"));
+    }
+
+    return console.log("req.user undefined - sendFile(login)");
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
 };

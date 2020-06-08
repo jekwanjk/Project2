@@ -9,7 +9,7 @@ module.exports = function (app) {
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     console.log("/api/login");
     console.log("req.user", req.user);
-    res.json(req.user);
+    return res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -31,40 +31,52 @@ module.exports = function (app) {
       state: req.body.state,
       zipCode: req.body.zipCode
     })
-      .then(function () {
-        res.redirect(307, "/login");
+      .then(function (data) {
+        console.log("res.json(data)");
+        res.json(data);
+        //res.redirect(307, "/login");
       })
       .catch(function (err) {
+        console.log(err);
         res.status(401).json(err);
       });
   });
 
-  // Route for logging user out
-  app.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
-  });
-
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function (req, res) {
+  app.get("/api/recipes", function (req, res) {
+    console.log("get /api/recipes req.user", req.user);
     if (!req.user) {
+      console.log("req.user is undefined");
       // The user is not logged in, send back an empty object
       res.json({});
     } else {
+      // Retrieve user data from database
+      console.log("db.User.findOne");
+      console.log("req.user.id", req.user.id);
+      db.User.findOne({
+        where: {
+          id: req.user.id
+        }
+      }).then(function (dbUser) {
+        console.log("res.json(dbUser)");
+        res.json(dbUser);
+      });
+
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
-      res.json({
-        email: req.user.email,
-        id: req.user.id,
-        name: req.user.name,
-        dietaryRestrictions: req.user.dietaryRestrictions,
-        calories: req.user.calories,
-        dietType: req.user.dietType,
-        address: req.user.address,
-        city: req.user.city,
-        state: req.user.state,
-        zipCode: req.user.zipCode
-      });
+      // console.log("res.json(...req.user)");
+      // res.json({
+      //   email: req.user.email,
+      //   id: req.user.id,
+      //   name: req.user.name,
+      //   dietaryRestrictions: req.user.dietaryRestrictions,
+      //   calories: req.user.calories,
+      //   dietType: req.user.dietType,
+      //   address: req.user.address,
+      //   city: req.user.city,
+      //   state: req.user.state,
+      //   zipCode: req.user.zipCode
+      // });
     }
   });
 };
