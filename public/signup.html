@@ -103,6 +103,7 @@
                   <option>Sulfite</option>
                   <option>Tree Nut</option>
                   <option>Wheat</option>
+                  <option>None</option>
                 </select>
               </div>
             </div>
@@ -143,6 +144,7 @@
                   <option>Paleo</option>
                   <option>Primal</option>
                   <option>Whole30</option>
+                  <option>None</option>
                 </select>
               </div>
             </div>
@@ -182,20 +184,26 @@
           </form>
         </div>
 
-        <div> <button class="uk-button uk-button-default uk-align-center" id="button"><a href="login.html">Sign up!</button>
-
+        <div> <button class="uk-button uk-button-default uk-align-center" id="button"><a href="login.html">Sign up!</button></div>
+          <!-- Sign Up Redirect -->
+          
         <div class="uk-card-footer" id="loginLink">
-          <p class="uk-text-center">Or</p>
-
-          <!-- Sing Up Redirect -->
-          <a href="/">LOGIN HERE</a>
-        </div>
+          <p class="uk-text-center">OR</p>
+          <p class="uk-text-center"><a href=login.html>LOGIN HERE</p>
       </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/signup.js"></script>
+  <script> 
+
+  var Loginbutton= document.getElementById("loginLink");
+   var LoginButton=function(){ 
+    submitButton.textContent = "Submitted!";
+  }
+  Loginbutton.addEventListener("click",LoginButton); 
+
   
+  </script>
    <script> 
    var submitButton= document.getElementById("button");
    var signupButton=function(){ 
@@ -206,3 +214,5 @@
     </script>
   </body>
 </html>
+
+

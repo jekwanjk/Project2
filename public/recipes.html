@@ -14,12 +14,12 @@
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
-        <li class="uk-active"><a href="#">Recipes</a></li>
+        <li class="uk-active"><a href="recipes.html">Recipes</a></li>
         <li></li>
-        <li><a href="#">Shopping List</a></li>
-        <li><a href="#">
+        <li><a href="shopping.html">Shopping List</a></li>
+        <li><a href="login.html">
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out
-            "></span>Log Out</a></li>
+            "id="LogOut"></span></span>Log Out</a></li>
       </ul>
     </div>
   </nav>
@@ -30,7 +30,7 @@
   </div>
 
   <div id="welcomeMessage">
-    <p>Welcome <span id="memberName"></span></p>
+    <p>Welcome!<span id="memberName"></span></p>
 
   </div>
 
@@ -384,10 +384,9 @@
         </div>
       </div>
     </ul>
-
-    <div id="shoppingButtonHolder">
-      <button class="uk-button uk-button-default uk-button-large">View Shopping List</button>
-    </div>
+</div id="shoppingButtonHolder">
+<button class="uk-button uk-button-default uk-button-large uk-align-center"><a href="shopping.html">View Shopping List</button>
+  
 
 
   </div>
@@ -398,6 +397,28 @@
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>
+
+  <script>
+
+   var Logout=document.getElementById("LogOut");
+   var SignOut=function(){ 
+    LogOut.textContent ="logging out!";
+  }
+  Logout.addEventListener("click",SignOut); 
+</script>
+ 
+<script>
+
+var shopping=document.getElementById("shoppingButtonHolder");
+var load=function(){
+loading.textContent="";
+}
+
+shopping.addEventListener("click",load)
+<script>
+
+ 
+  
 </body>
 
 </html>

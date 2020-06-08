@@ -2,7 +2,7 @@
 <html id="loginBackground" lang="en">
 
 <head>
-  <title>FoodApp</title>
+  <title>IEAT</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- UIkit CSS -->
@@ -15,7 +15,7 @@
 
   <!-- App Logo -->
   <div id="logo">
-    <h1>FOODAPP</h1>
+    <h1>IEAT</h1>
   </div>
 
   <!-- Login Card Container -->
@@ -52,28 +52,34 @@
           <!-- Submit Button -->
           <button class="uk-button uk-button-default uk-align-center" type="submit"><a href="recipes.html">Submit</button>
         </form>
-      </div>
       <!-- Card Footer-->
-      <div class="uk-card-footer" id="signUpLink">
-        <p class="uk-text-center">Don't have an account?</p>
+      <button"uk-button uk-button-default uk-align-center" class="uk-card-footer" id="signUpLink">
+        <p class="uk-text-center"><a href="signup.html">Don't have an account? Signup Here!</Button>
+
         <!-- Sing Up Redirect -->
-        <a href="/">SIGN UP</a>
+        
       </div>
     </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- <-----Event listener for submit button----->
+  <!-- <-----Event listener for sign up link----->
    <Script>
-  var submitButton= document.getElementBytype("submit");
-   var signupButton=function(){ 
-    submitButton.textContent = "Submitted!";
+  var Link=document.getElementById("signUpLink");
+   var UP=function(){ 
+    signUp.textContent = "Lets Go!";
   }
-  submitButton.addEventListener("click",signupButton); 
-
-
+  Link.addEventListener("click",UP); 
   </Script>
+  <!-- <----------Event listener for submit button--------> 
+  </Script
+   var SubmitButton=document.getElementsByType("submit");
+   var signUpButton=function(){ 
+    submit.textContent = "Submitted!";
+  }
+  SubmitButton.addEventListener("click",signUpButton); 
+    
 
   <!-- UIkit JS -->
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
