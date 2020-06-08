@@ -1,21 +1,27 @@
 $(document).ready(function () {
+  var userData = {};
 
-  /* ROUTE NEEDS TO BE SET UP IN DATABASE FOR THIS TO WORK */
-  // let dietRestrictions;
-  // let calories;
-  // let dietType;
-  // Will display name of user next to Welcome
-  // $.get("/api/user_data").then(function (data) {
-  //   $("#memberName").text(data.name);
-  //  dietRestrictions = data.dietaryRestrictions;
-  //  calories = data.calories; 
-  //  dietType = data.dietType;
-  // });
+  function getUserData() {
+    $.get("/api/recipes", function (data) {
+      if (data) {
+        console.log("all user data:", data);
+        userData = data;
+      }
+    });
+  }
+
+  getUserData();
+  console.log(userData);
 
   // Placeholder values for user input !!!!! NEED TO BE UPDATED TO DATABASE BY MOVING INTO LINE 21 and setting dietRestrictions to data.dietaryRestrictions
-  let dietRestrictions = "peanuts";
-  let calories = 2000;
-  let dietType = "Gluten Free";
+  // let dietRestrictions = "peanuts";
+  // let calories = 2000;
+  // let dietType = "Gluten Free";
+
+  $("#memberName").text(userData.name);
+  let dietRestrictions = userData.dietaryRestrictions;
+  let calories = userData.calories;
+  let dietType = userData.dietType;
 
   // Array of objects with recipe id, title, sourceURL
   let mealIdsTitleSource = [];
@@ -157,24 +163,26 @@ $(document).ready(function () {
         for (let i = 0; i < finalRecipes.length; i++) {
           allIngredients.push(finalRecipes[i].ingredients);
         }
-        console.log("INGREDIENTS" , allIngredients);
+        console.log("INGREDIENTS", allIngredients);
 
         var finalAllIngredients = [].concat.apply([], allIngredients);
         console.log("ALL INGREDIENTS", finalAllIngredients);
 
         // Get all qtys to add to bottom of page
         let allQty = [];
-        for(let i = 0; i < finalRecipes.length; i++){
+        for (let i = 0; i < finalRecipes.length; i++) {
           allQty.push(finalRecipes[i].qty);
         }
 
         var finalAllQty = [].concat.apply([], allQty);
         console.log("ALL QTY: ", finalAllQty);
 
-        for(let i = 0; i < finalAllQty.length; i++){
+        for (let i = 0; i < finalAllQty.length; i++) {
           let newIngredientandQtyLi = $("<li>");
           let newIngredientClass = "ingredientli" + i;
-          newIngredientandQtyLi.text(finalAllIngredients[i] + ": " + finalAllQty[i]);
+          newIngredientandQtyLi.text(
+            finalAllIngredients[i] + ": " + finalAllQty[i]
+          );
           $("#ingredientsQty").append(newIngredientandQtyLi);
         }
       }, 2000);
