@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +16,9 @@
     <nav class="uk-navbar-container" uk-navbar>
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li><a href="#">Recipes</a></li>
-                <li class="uk-active"><a href="#">Shopping List</a></li>
-                <li><a href="#">
+                <li><a href="recipes.html">Recipes</a></li>
+                <li class="uk-active"><a href="shopping.html">Shopping List</a></li>
+                <li><a href="login.html">
                         <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out
             "></span>Log Out</a></li>
             </ul>
@@ -108,9 +110,8 @@
         </div>
 
         <div id="recipesButtonHolder">
-            <button class="uk-button uk-button-default uk-button-large">Back To Recipes</button>
-        </div>
-
+            <button class="uk-button uk-button-default uk-button-large uk-align-center"><a href= "recipes.html">Back To Recipes</button>
+            </div>
     </div>
 
 
@@ -119,6 +120,21 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
     <script type="text/javascript" src="js/members.js"></script>
+    <script>
+
+   var Holder= document.getElementById("recipesButtonHolder");
+   var button=function(){ 
+    submitButton.textContent = "Submitted!";
+  }
+  Holder.addEventListener("click",button); 
+    </script>
+    <script>
+        var Logout=document.getElementById("LogOut");
+        var SignOut=function(){ 
+         LogOut.textContent ="logging out!";
+       }
+       Logout.addEventListener("click",SignOut);
+     </script>
 </body>
 
 </html>
