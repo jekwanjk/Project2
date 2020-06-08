@@ -50,7 +50,7 @@
             </div>
           </div>
           <!-- Submit Button -->
-          <button class="uk-button uk-button-default uk-align-center" type="submit">Submit</button>
+          <button class="uk-button uk-button-default uk-align-center" type="submit"><a href="recipes.html">Submit</button>
         </form>
       </div>
       <!-- Card Footer-->
@@ -63,6 +63,18 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- <-----Event listener for submit button----->
+   <Script>
+  var submitButton= document.getElementBytype("submit");
+   var signupButton=function(){ 
+    submitButton.textContent = "Submitted!";
+  }
+  submitButton.addEventListener("click",signupButton); 
+
+
+  </Script>
+
   <!-- UIkit JS -->
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
