@@ -33,7 +33,7 @@ $(document).ready(function () {
   let finalRecipes = [];
 
   const queryURL =
-    "https://api.spoonacular.com/mealplanner/generate?apiKey=33ae52ff39dd484890691ce240ac97dc&timeframe=week?targetCalories=" +
+    "https://api.spoonacular.com/mealplanner/generate?apiKey=28489e997b6844c79d1f1d9597c68901&timeframe=week?targetCalories=" +
     calories +
     "?diet=" +
     dietType +
@@ -196,7 +196,7 @@ $(document).ready(function () {
         let queryURLImgs =
           "https://api.spoonacular.com/recipes/" +
           mealIdsTitleSource[i].id +
-          "/information?apiKey=33ae52ff39dd484890691ce240ac97dc";
+          "/information?apiKey=28489e997b6844c79d1f1d9597c68901";
 
         $.ajax({
           url: queryURLImgs,
